@@ -31,13 +31,16 @@ export default function Table() {
         setData(newItems);
     }
 
-
     function markAsChecked(index) {
-        setData(data =>
-            data.map((item, indexes) =>
-                indexes === index ? { ...item, isMarked: !item.isMarked } : item
-            )
-        );
+        const newData = data.map((item, indexs) => {
+            if (indexs === index) {
+                return { ...item, isMarked: !item.isMarked };
+            } else {
+                return item;
+            }
+        });
+
+        setData(newData);
     }
 
     return (
