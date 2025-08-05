@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Route } from "react-router";
-import './form.css'
+import './Form.css'
 
 export default function Form() {
 

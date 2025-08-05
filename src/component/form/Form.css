@@ -15,15 +15,20 @@ form{
     margin-top: 30vh;
     gap:1rem;
     border: 1px solid black;
+    border-radius: 20px;
 }
 label{
     justify-content: start;
     align-items: start;
     padding: 3px;
-    
+}
+input[type='text']{
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 8px;
+    width: 300px;
 }
 .link{
     justify-content: start;
     padding: 1rem;
-
 }

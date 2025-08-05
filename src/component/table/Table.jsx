@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import './Table.css';
 
 export default function Table() {
     const [data, setData] = useState(() => {
-        const saved = localStorage.getItem('values');
-        if (saved) {
-            return JSON.parse(saved).map(item => ({
+        const data = localStorage.getItem('values');
+        if (data) {
+            return JSON.parse(data).map(item => ({
                 ...item,
                 isMarked: item.isMarked || false,
             }));
@@ -23,11 +24,11 @@ export default function Table() {
     }
     function deleteItem(index) {
         const newItems = [];
-        for (let i = 0; i < data.length; i++) {
+        data.forEach((items, i) => {
             if (i !== index) {
-                newItems.push(data[i]);
+                newItems.push(items);
             }
-        }
+        });
         setData(newItems);
     }
 
@@ -44,7 +45,7 @@ export default function Table() {
     }
 
     return (
-        <div>
+        <div className=''>
             <table>
                 <thead>
                     <tr>
@@ -64,7 +65,7 @@ export default function Table() {
                             <td>
                                 <input
                                     type="checkbox"
-                                    checked={!!item.isMarked} index
+                                    checked={!!item.isMarked}
                                     onChange={() => markAsChecked(index)}
                                 />
                             </td>
